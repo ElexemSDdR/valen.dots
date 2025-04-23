@@ -256,4 +256,20 @@ tree -a # or --all to see hidden directories and files
 tree -d # or --dirs-only to see only dirs
 ```
 
+### Gh (GitHub CLI)
+It is a CLI (Command Line Interface) of GitHub to manage repos easier. It be able to create, delete, list, clone and else repositories from github.
 
+```bash
+# Homebrew
+brew install gh
+
+# Via curl
+curl -sS https://webi.sh/gh | sh
+```
+
+After install gh CLI you have to log in with your GitHub account.
+```bash
+
+# Log in with GitHub
+gh auth login
+```
