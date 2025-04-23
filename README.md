@@ -1,15 +1,15 @@
-# Here the commands to download the apps that I use
+# My config
 
 
-## Package Manager:
+## Package Manager
 
-Homebrew is a package manager for Linux and MacOS fast and easy to use. It can install packages that linux could not have.
+[Homebrew](https://brew.sh) is a package manager for Linux and MacOS fast and easy to use. It can install packages that linux could not have.
 ```bash
 # Install Homebrew via curl
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## Shells:
+## Shells
 
 Here could be 2 shells: **zsh** and **Nushell**. Currently I use a lot **Nushell**.
 ```bash
@@ -42,8 +42,7 @@ emerge app-shells/zsh
 # Homebrew
 brew install zsh
 ```
-after install zsh install oh-my-zsh to add plugins and themes to zsh.
-
+Next, install [oh-my-zsh](https://ohmyz.sh) to add plugins and themes to zsh.
 ```bash
 # via curl
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -51,8 +50,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # or via wget
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" 
 ```
-after install oh-my-zsh u can use the theme I use... (Fijarse en la compu grande para continuar para la configuracion de oh-my-zsh)
-
+After install oh-my-zsh u can use the theme I use... (Fijarse en la compu grande para continuar para la configuracion de oh-my-zsh)
 ```bash
 # -- To install nushell --
 
@@ -61,9 +59,9 @@ brew install nushell
 
 # After install it, open nushell on the terminal typing nu.
 nu
-
-# The themes are of Starship, so to install Starship
-
+```
+The themes are of [Starship](https://starship.rs/), so to install it
+```bash
 # via curl
 curl -sS https://starship.rs/install.sh | sh
 
@@ -84,7 +82,7 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 ```
 And starship is now activate and in use.
 
-## Applications:
+## Applications, CLIs, etc.
 
 My most used apps, commands or programs are the next:
 
@@ -109,6 +107,7 @@ sudo apt install fastfetch # Install fastfetch
 ```
 ### Nvim/Neovim
 Nvim or neovim is a fork of vim, more oriented to IDE. 
+[The official repository of Nvim](https://github.com/neovim/neovim/blob/master/INSTALL.md) explain how to download it as well.
 ```bash
 # Homebrew 
 brew install nvim
@@ -122,7 +121,7 @@ sudo apt install neovim
 # Fedora
 sudo dnf install -y neovim
 ```
-After install nvim you can install a plugin manager like Lazyvim
+After install nvim you can install a plugin manager like [Lazyvim](http://www.lazyvim.org/)
 ```bash
 # Installation of Lazyvim
 
@@ -144,7 +143,7 @@ rm -rf ~/.config/nvim/.git
 # And finally, open nvim
 nvim
 ```
-To configure nvim, u can open the main confiig file, the config.vim to configure it with vimscript or also can be config.lua to configure it with lua.
+To configure nvim, u can open the main config file, the config.vim to configure it with vimscript or also can be config.lua to configure it with lua.
 If you want, you can copy my configuration reeplacing the nvim folder of the .config directory on your computer with the nvim folder of the valen.dots.
 ```bash
 # Delete the nvim folder of .config if it exists, remember do the backup before delete it 
@@ -155,7 +154,8 @@ cp nvim/ ~/.config/
 ```
 
 ### Brave Browser
-The browser I use is Brave
+The browser I use is Brave.
+You also can visit [The Brave Browser](https://brave.com) official website
 ```bash
 # Install Brave via curl with one command
 curl -fsS https://dl.brave.com/install.sh | sh
@@ -203,7 +203,7 @@ yay -Sy brave-bin
 ```
 
 ### Konsole
-Sometimes I use konsole as well, the x terminal emulator of KDE plasma environment. It is simple, customizable and splitable, so if you have another terminal emulator of another environment and you would like to try konsole you can install it 
+Sometimes I use konsole as well, the x terminal emulator of KDE plasma environment. It is simple, customizable and splitable, so if you have another terminal emulator of another environment and you would like to try konsole you can install it
 ```bash
 # Debian 
 sudo apt install konsole
@@ -217,3 +217,43 @@ sudo pacman -S konsole
 # or with flatpak
 flatpak install flathub org.kde.konsole
 ```
+
+### Ranger
+Ranger is a file manager to see all the files and folder easier. This shows all in form of tree.
+
+```bash
+# Debian
+sudo apt install ranger
+
+# Fedora
+sudo dnf install ranger
+
+# Arch
+sudo pacman -S ranger
+
+# Execution
+ranger
+```
+
+### Tree
+Tree is a file visualizer, it is like a better ls, it shows the dirs and files in a tree form
+
+```bash
+# Debian
+sudo apt install tree
+
+# Fedora
+sudo dnf install tree
+
+# Arch
+sudo pacman -S tree
+
+# Execution
+tree
+
+# Some flags
+tree -a # or --all to see hidden directories and files
+tree -d # or --dirs-only to see only dirs
+```
+
+
