@@ -1,0 +1,547 @@
+clear
+ls
+clear
+adjlad c soakda ckmasas dasm askf ck;as d
+clear
+ls /etc/shells
+cd /eyc
+cd /etc
+ls
+ls | s
+ls | grep s
+ls | grep sh
+cat shells
+echo "$HOME/.cargo/bin/nu" | sudo tee -a /etc/shells
+chsh -s $HOME/.cargo/bin/nu
+clear
+exit
+config set path $nu.path<\n>config set env $nu.env
+clea
+rclear
+clear
+exit
+clear
+ls
+ls -a
+nvim .zshrc
+cd .config/nvim/
+ls
+cat stylua.toml
+cat init.lua
+cat lazyvim.json
+cd lua
+cd config/
+ls
+ls -a
+cat lazy.lua
+cd ..
+cat stylua.toml
+cd lua
+ls
+cd plugins/
+ls
+cd ../config/
+ls
+cat options.lua
+cat lazy.lua
+nvim lazy.lua
+clear
+shutdown
+clear
+config --help
+nu --version
+config nu
+config nu --help
+$nu.config-path
+nvim $nu.config-path
+exit
+nvim
+clear
+nemo
+clear
+ps
+clear
+help config nu
+config nu --doc
+nvim $nu.config-path
+clear
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+cd Escritorio/
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+cd Escuela-2025/
+cd ../../
+ls
+pwd
+nvim $nu.config-path
+source $nu.config-path
+clear
+nvim $nu.config-path
+source $nu.config-path
+clear
+ls
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+ls
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+clear
+nvim $nu.config-path
+clear
+source $nu.config-path
+clear
+config nu --doc
+nvim $nu.config-path
+exit
+nvim $nu.config-path
+clear
+source $nu.config-path
+ls
+kd
+nvim $nu.config-path
+source $nu.config-path
+explore
+clear
+welcome
+baner
+clear
+banner
+"hello nushell"
+nvim $nu.config-path
+source $nu.config-path
+"hello"
+nvim $nu.config-path
+source $nu.config-path
+exit
+"safa"
+echo "hello Nushel"
+echo "hello Nushell"
+nvim $nu.config-path
+echo "hello Nushell"
+source $nu.config-path
+echo "hello Nushell"
+nvim $nu.config-path
+source $nu.config-path
+echo "hello Nushell"
+nvim $nu.config-path
+$env.config.color_config.string
+$env.config.color_config.number
+$env.config.color_config.int
+$env.config.color_config.glob
+01001101
+$env.config.color_config.binary
+$env.config.color_config.list
+true
+false
+$env.config.color_config.boolean
+$env.config.color_config.bool
+nvim $nu.config-path
+$env.config.color_config.shape_pipe
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+ls | grep sh
+nvim $nu.config-path
+source $nu.config-path
+clear
+ls
+source $nu.config-path
+nvim $nu.config-path
+$env.config.color_config.cursor
+ansi -l
+ansi -l | grep clo
+nvim $nu.config-path
+source $nu.config-path
+ls
+$env.config.color_config
+$env.config.color_config = (light-theme)
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+std/config
+$env.config.color_config
+clear
+$env.config.color_config
+nvim $nu.config-path
+celar
+clear
+nvim $nu.config-path
+source $nu.config-path
+clear
+source $nu.config-path
+cd Escritorio/
+cd ..
+nvim $nu.config-path
+exit
+clear
+cd Escritorio/
+ls
+rm `Crocodile Clips v3.5.desktop` `Crocodile Clips v3.5.lnk`
+ls
+ls -a
+ls -h
+ls -l
+cd ../
+ls -l
+ls
+sudo apt install ranger tree
+cd Escritorio/
+tree -c Escuela-2025/
+tree -h
+tree -H
+tree --help
+tree -d Escuela-2025/
+tree -da Escuela-2025/
+tree -a Escuela-2025/
+tree -d Escuela-2025/
+clear
+tree --help
+tree -J Escuela-2025/
+tree -dJ Escuela-2025/
+tree -dX Escuela-2025/
+tree -H Escuela-2025/
+nvim test_html_tree.html
+./test_html_tree.html
+open test_html_tree.html
+clear
+ls
+open .
+mv test_html_tree.html ../
+sudo apt install nodejs
+sudo apt install httpie
+http get https://api.github.com/repos/nushell/nushell
+http get https://api.github.com/repos/ElexemSDdR/Nanotorrent-Astro
+http get https://api.github.com/ElexemSDdR/Nanotorrent-Astro
+http get https://github.com/ElexemSDdR/Nanotorrent-Astro
+http get https://github.com/ElexemSDdR/fixer-of-words
+http get https://api.github.com/repos/ElexemSDdR/multi-dex
+http get https://games-sata-server.vercel.app
+http get https://games-data-server.vercel.app
+https://games-data-server.vercel.app/
+http get https://games-data-server.vercel.app/
+clear
+http get https://games-data-server.vercel.app/games
+http get --help
+http get https://www.example.com
+http get --user myuser --password mypass https://www.example.com
+http get https://games-data-server.vercel.app/games
+http get https://games-data-server.vercel.app/games/1
+sudo apt install plank 
+shutdown
+clear
+sudo apt install fastfetch
+brew install fastfetch
+brew clanup fastfetch
+brew cleanup fastfetch
+clear
+fastfetch
+gh repo clone ElexemSDdR/valen.dots
+cd valen.dots/
+ls -a
+clear
+default.run.shell
+defaults.run.shell
+clear
+ls
+cd ../
+ls
+ls -a
+cd .local/
+ls -a
+cd share/
+ls
+ls -a
+ls locale/
+cd ..
+cd state/
+ls
+cd ..
+ls
+ls -a
+rm test_html_tree.html
+cd .config/
+ls
+ls -a
+cd nushell/
+ks
+ls a
+ls -a
+ls -r
+exit
+nu
+ls -r
+exit
+nvim README.md
+clear
+shutdown
+clear
+cd Escritorio/Escuela-2025/
+mkdir Igles
+mv Igles/
+mv Igles/ Ingles
+cd Ingles/
+nvim folleto_holiday_homework.md
+shutdown
+clear
+git pull
+cd Ingles/
+ls
+open `Mate y Ruta.docx`
+clear
+cd valen.dots/
+ls -a
+clear
+cd valen.dots/
+nvim README.md
+sudo apt update ; sudo apt upgrade
+clea
+clear
+nvim README.md
+cd ../Escritorio/Escuela-2025/Lengua/
+ls
+open .
+files
+nemo
+clear
+cd ~/valen.dots/
+$nu.config-path
+brew install starship
+brew cleanup starship
+nvim ~/.config/nushell/config.nu
+exit
+clear
+nvim README.md
+exit
+clear
+nvim README.md
+sudo npm i -g pnpm
+sudo apt install npm
+ls
+clar
+clear
+npm -v
+node -v
+sudo npm i -g pnpm
+pwd
+clear
+ls
+ls -a
+ls -l
+ls | where size > 2.9kb
+ls | where size > 3kb
+nvim README.md
+clear
+cd valen.dots/
+command_timeout
+clear
+cd ..
+cd valen.dots/
+clear
+nvim README.md
+ls -a
+git add .
+git commit -m 'Adding the README.md file' -a
+git push
+git config --global user.name ElexemSDdR
+git config --global user.email valendomta@gmail.com
+gh auth login
+git push
+nvim README.md
+clear
+cd valen.dots/
+starship print-config
+starship print-config | grep timeout
+clear
+starship print-config | grep timeout
+starship print-config
+clear
+echo $STARSHIP_CONFIG
+echo $env.STARSHIP_CONFIG
+exit
+clea
+claer
+clear
+cd valen.dots/
+ls
+ls -a
+clear
+ls
+ls -a
+ls
+ls -a
+clear
+nvim
+clear
+ls
+ls -a
+clear
+cd ~/.config/nvim/
+ls -a
+cd lazyvim.json
+cd lua
+ls -a
+cd config/
+ls
+ls -a
+clear
+ls
+cat lazy.lua
+cd ../plugins/
+ls
+cat example.lua
+nvim example.lua
+nvim .
+clear
+nvim
+exit
+clear
+ls
+cd nvim/lazy/
+ls
+cd ../
+ls
+cd ~/.config/nvim/
+ls
+cat init.lua
+ranger
+clear
+ls
+nvi
+nvim
+cd ~/.local/share/nvim/lazy/
+ls
+git clone https://github.com/navarasu/onedark.nvim
+nvim
+ls
+ls -a
+git clone https://github.com/navarasu/onedark.nvim.git
+cd onedark.nvim/
+cd ../
+cd ..
+ls
+cd mason/
+ls
+cd ../snacks/
+ls
+cd ../lazy/
+ls
+nvim
+cd ~/.config/nvim/lua/config/
+ls
+cd ../plugins/
+nvim example.lua
+cd ../config/options.lua
+cd ../config/
+nvim options.lua
+nvim
+nvim lazy.lua
+cd ../
+cd plugins/
+ls
+nvim onedark.lua
+nvim
+nvim onedark.lua
+cd ../config/
+ls
+nvim lazy.lua
+cd ../plugins/
+nvim onedark.lua
+nvim
+cd ~/valen.dots/
+ls
+clear
+ls
+cat options.lua
+cd ../plugins/
+ls
+cat example.lua
+cat onedark.lua
+cd ../
+cd ~/valen.dots/
+clear
+ls
+rm -rf nvim
+cp ~/.config/nvim/ ./
+cp --recursive ~/.config/nvim/ ./
+ls
+ls nvim/
+cd nvim/
+rm LICENSE README.md
+ls
+cd ../
+clear
+ls
+nvim README.md
+nvim README.md
+mkdir configs
+mv nvim/ configs/
+ls -a
+cd configs/
+mkdir apps
+mv nvim/ apps/
+ls
+ls apps/
+mkdir shells system
+cd ../
+mv .icons/ .themes/ configs/system/
+cd configs/
+ls
+cd system/
+ls
+ls -a
+cd ../../
+ls
+ls -a
+git add .
+git commit -m 'better README and nvim conf added' -a
+git push
+cd configs/
+ls
+cp ~/.config/nushell/ ./shells/
