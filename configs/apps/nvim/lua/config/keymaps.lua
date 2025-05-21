@@ -1,3 +1,47 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+-- Atajos generales
+vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Cerrar ventana" })
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Guardar archivo" })
+vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { desc = "Quitar resaltado de búsqueda" })
+
+-- Navegación entre ventanas
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Mover a la ventana izquierda" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Mover a la ventana inferior" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Mover a la ventana superior" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Mover a la ventana derecha" })
+
+-- Redimensionar ventanas
+vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", { desc = "Reducir altura de ventana" })
+vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", { desc = "Aumentar altura de ventana" })
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Reducir ancho de ventana" })
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Aumentar ancho de ventana" })
+
+-- Navegación en modo insertar
+vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Mover cursor a la izquierda" })
+vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Mover cursor abajo" })
+vim.keymap.set("i", "<C-k>", "<Up>", { desc = "Mover cursor arriba" })
+vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Mover cursor a la derecha" })
+
+-- Mover líneas
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Mover línea seleccionada abajo" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Mover línea seleccionada arriba" })
+
+-- Wrapped lines navigation
+vim.keymap.set("n", "j", "gj", { desc = "Navigate down to wrapped lines" })
+vim.keymap.set("n", "k", "gk", { desc = "Navigate up to wrapped lines" })
+
+-- Indentar y desindentar en modo visual sin salirse del mismo
+vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
+
+-- Mantener cursor en su lugar al unir líneas
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Unir líneas manteniendo cursor" })
+
+-- Centrar al buscar y desplazarse
+vim.keymap.set("n", "n", "nzzzv", { desc = "Siguiente coincidencia centrada" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Anterior coincidencia centrada" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Desplazar media página abajo centrado" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Desplazar media página arriba centrado" })
+
+-- Atajos para Telescope
+vim.keymap.set("n", "<leader><leader>f", ":Telescope find_files<CR>", { desc = "Open the find files from telescope" })
+vim.keymap.set("n", "<leader><leader>b", ":Telescope buffers<CR>", { desc = "Open the open buffers from telescope" })

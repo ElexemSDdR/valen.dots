@@ -11,10 +11,9 @@
 
 ## Shells
 
-Here could be 2 shells: **zsh** and **Nushell**. Currently I use a lot **Nushell**.
+Here could be 3 shells: **zsh**, **Nushell** or **Fish**. Currently I use a lot **Fish**.
+#### To install zsh 
 ```bash
-# -- To install zsh or zshell -- 
-
 # Debian based Linux
 sudo apt install zsh 
 
@@ -51,16 +50,50 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" 
 ```
 After install oh-my-zsh u can use the theme I use... (Fijarse en la compu grande para continuar para la configuracion de oh-my-zsh)
+
+#### To install nushell
+[Nushell](https://nushell.sh) is a very visual shell, with a table system for visualize better the ls, open and see better .json files on the same terminal. See the [GitHub Nushell](https://github.com/nushell/nushell) doc
+
 ```bash
-# -- To install nushell --
 
 # Homebrew 
 brew install nushell
 
 # After install it, open nushell on the terminal typing nu.
 nu
+
+# Or also can add it to the default shells
+sudo echo $(which nu) | sudo tee -a /etc/shells
+
+# After adding at the file of the possible shells, restart the console or the system and do
+chsh -S $(which nu)
+# Finally restart the system and it could put nushell as your default shell
 ```
-The themes are of [Starship](https://starship.rs/), so to install it
+
+#### To install Fish
+[Fish](https://fishshell.com/docs/current/index.html) is a powerfully shell and easy to use, with some configurations easy to apply and else.
+
+```bash
+# Homebrew
+brew install fish
+
+# Debian (adding the packages)
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:4.list
+curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null
+sudo apt update
+sudo apt install fish
+
+# Fedora
+sudo dnf install fish
+
+# Arch
+sudo pacman -S fish
+
+# To set fish as default shell do the same steps that nushell
+```
+
+The themes are of [Starship](https://starship.rs/), a very clean and brilliant prompt, so to install it
+
 ```bash
 # via curl
 curl -sS https://starship.rs/install.sh | sh
@@ -68,7 +101,9 @@ curl -sS https://starship.rs/install.sh | sh
 # Homebrew
 brew install starship
 ```
+
 Once installed starship you have to activate it. 
+
 ```bash
 # To activate on zsh, open the .zshrc config file and add the next line at the end of that.
 eval "$(starship init zsh)"
@@ -79,6 +114,9 @@ $nu.config-path # It have to return something like /home/user/.config/nushell/co
 # After type it, open the file and add the next lines at the end of the file
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu") 
+
+# To activate on fish add the next line to the end of the config.fish file (it could be on ~/.config/fish/config.fish)
+starship init fish | source
 ```
 And starship is now activate and in use.
 
@@ -106,7 +144,7 @@ sudo apt update # Update the repositories
 sudo apt install fastfetch # Install fastfetch
 ```
 ### Nvim/Neovim
-Nvim or neovim is a fork of vim, more oriented to IDE. 
+Nvim or neovim is a fork of vim, more oriented to IDE, it is basically a powerfull text editor, with possibility to add plugins easier (with lazyvim). 
 [The official repository of Nvim](https://github.com/neovim/neovim/blob/master/INSTALL.md) explain how to download it as well.
 ```bash
 # Homebrew 
