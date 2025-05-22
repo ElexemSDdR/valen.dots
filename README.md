@@ -1,6 +1,5 @@
 # My config
 
-
 ## Package Manager
 
 [Homebrew](https://brew.sh) is a package manager for Linux and MacOS fast and easy to use. It can install packages that linux could not have.
@@ -9,6 +8,8 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+[Cargo](https://doc.rust-lang.org/cargo/) is another package manager that I use, but isn't just a pacakge manager, it is the rust compiler, but with this install something more.
+
 ## Shells
 
 Here could be 3 shells: **zsh**, **Nushell** or **Fish**. Currently I use a lot **Fish**.
@@ -16,28 +17,44 @@ Here could be 3 shells: **zsh**, **Nushell** or **Fish**. Currently I use a lot 
 ```bash
 # Debian based Linux
 sudo apt install zsh 
+```
 
+```bash
 # Arch based Linux
 sudo pacman -S zsh
+```
 
+```bash
 # Fedora
 sudo dnf install zsh
+```
 
+```bash
 # OpenSUSE
 zypper install zsh
+```
 
+```bash
 # OpenBSD
 pkg_add zsh
+```
 
+```bash
 # FreeBSD
 pkg install zsh
+```
 
+```bash
 # Alpine
 apk add zsh
+```
 
+```bash
 # Funtoo/Gentoo
 emerge app-shells/zsh
+```
 
+```bash
 # Homebrew
 brew install zsh
 ```
@@ -45,7 +62,9 @@ Next, install [oh-my-zsh](https://ohmyz.sh) to add plugins and themes to zsh.
 ```bash
 # via curl
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 
+```bash
 # or via wget
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" 
 ```
@@ -55,13 +74,14 @@ After install oh-my-zsh u can use the theme I use... (Fijarse en la compu grande
 [Nushell](https://nushell.sh) is a very visual shell, with a table system for visualize better the ls, open and see better .json files on the same terminal. See the [GitHub Nushell](https://github.com/nushell/nushell) doc
 
 ```bash
-
 # Homebrew 
 brew install nushell
 
 # After install it, open nushell on the terminal typing nu.
 nu
+```
 
+```bash
 # Or also can add it to the default shells
 sudo echo $(which nu) | sudo tee -a /etc/shells
 
@@ -76,45 +96,61 @@ chsh -S $(which nu)
 ```bash
 # Homebrew
 brew install fish
+```
 
+```bash
 # Debian (adding the packages)
 echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/4/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:4.list
 curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:4/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_4.gpg > /dev/null
 sudo apt update
 sudo apt install fish
-
-# Fedora
-sudo dnf install fish
-
-# Arch
-sudo pacman -S fish
-
-# To set fish as default shell do the same steps that nushell
 ```
 
-The themes are of [Starship](https://starship.rs/), a very clean and brilliant prompt, so to install it
+```bash
+# Fedora
+sudo dnf install fish
+```
 
 ```bash
-# via curl
-curl -sS https://starship.rs/install.sh | sh
+# Arch
+sudo pacman -S fish
+```
+To set fish as default shell do the same steps that nushell
 
-# Homebrew
+
+#### Themes
+The themes are of [Starship](https://starship.rs/), a very clean and brilliant prompt, so to install it
+
+##### Via curl
+```bash
+curl -sS https://starship.rs/install.sh | sh
+```
+
+##### Homebrew
+```bash
 brew install starship
 ```
 
-Once installed starship you have to activate it. 
+Once installed starship you have to **activate** it. 
 
+##### On Zsh
 ```bash
 # To activate on zsh, open the .zshrc config file and add the next line at the end of that.
 eval "$(starship init zsh)"
+```
 
+##### On Nushell
+```bash
 # To activate on Nushell, open the config file of nushell, find it with the next command on nushell:
-$nu.config-path # It have to return something like /home/user/.config/nushell/config.nu
+$nu.config-path # It has to return something like /home/user/.config/nushell/config.nu
 
 # After type it, open the file and add the next lines at the end of the file
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu") 
+```
 
+##### On Fish
+```bash
 # To activate on fish add the next line to the end of the config.fish file (it could be on ~/.config/fish/config.fish)
 starship init fish | source
 ```
@@ -130,14 +166,22 @@ It is an upgrade of neofetch faster and better, it gives you better and more exa
 ```bash
 # Homebrew
 brew install fastfetch
+```
 
+```bash
 # In some linux dists (on Debian 13 or newer)
 sudo apt install fastfetch
+```
 
+```bash
 sudo pacman -S fastfetch
+```
 
+```bash
 sudo dnf install fastfetch
+```
 
+```bash
 # Or you can add the repository and install it with apt
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch # Add the repository
 sudo apt update # Update the repositories
@@ -149,13 +193,19 @@ Nvim or neovim is a fork of vim, more oriented to IDE, it is basically a powerfu
 ```bash
 # Homebrew 
 brew install nvim
+```
 
+```bash
 # Arch
 sudo pacman -S neovim
+```
 
+```bash
 # Debian
 sudo apt install neovim
+```
 
+```bash
 # Fedora
 sudo dnf install -y neovim
 ```
@@ -197,7 +247,9 @@ You also can visit [The Brave Browser](https://brave.com) official website
 ```bash
 # Install Brave via curl with one command
 curl -fsS https://dl.brave.com/install.sh | sh
+```
 
+```bash
 # Adding the repository to install with apt
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 
@@ -206,52 +258,63 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] http
 sudo apt update
 
 sudo apt install brave-browser
+```
 
-
+```bash
 # Fedora 41+, with dnf5
 sudo dnf install dnf-plugins-core
 
 sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 
 sudo dnf install brave-browser
+```
 
-
+```bash
 # Fedora < 41, Rocky/RHEL 
 sudo dnf install dnf-plugins-core
 
 sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 
 sudo dnf install brave-browser
+```
 
-
+```bash
 # Fedora Silverblue/Kinoite/Sway Atomic/Budgie Atomic
 run0 curl -fsSLo /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 
 run0 rpm-ostree install brave-browser
+```
 
-
+```bash
 # OpenSUSE
 sudo zypper addrepo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 
 sudo zypper install brave-browser
+```
 
-
+```bash
 # Arch with yay
 yay -Sy brave-bin
 ```
 
 ### Konsole
-Sometimes I use konsole as well, the x terminal emulator of KDE plasma environment. It is simple, customizable and splitable, so if you have another terminal emulator of another environment and you would like to try konsole you can install it
+Sometimes I use konsole as well, the x terminal emulator of KDE plasma environment, but i prefer and use anothers one. It is simple, customizable and splitable, so if you have another terminal emulator of another environment and you would like to try konsole you can install it
 ```bash
 # Debian 
 sudo apt install konsole
+```
 
+```bash
 # Fedora
 sudo dnf install konsole
+```
 
+```bash
 # Arch with an environment that wasn't KDE Plasma
 sudo pacman -S konsole
+```
 
+```bash
 # or with flatpak
 flatpak install flathub org.kde.konsole
 ```
@@ -262,14 +325,20 @@ Ranger is a file manager to see all the files and folder easier. This shows all 
 ```bash
 # Debian
 sudo apt install ranger
+```
 
+```bash
 # Fedora
 sudo dnf install ranger
+```
 
+```bash
 # Arch
 sudo pacman -S ranger
+```
 
-# Execution
+#### Execution
+```bash
 ranger
 ```
 
@@ -279,16 +348,24 @@ Tree is a file visualizer, it is like a better ls, it shows the dirs and files i
 ```bash
 # Debian
 sudo apt install tree
+```
 
+```bash
 # Fedora
 sudo dnf install tree
+```
 
+```bash
 # Arch
 sudo pacman -S tree
+```
 
-# Execution
+#### Execution
+```bash
 tree
+```
 
+```bash
 # Some flags
 tree -a # or --all to see hidden directories and files
 tree -d # or --dirs-only to see only dirs
@@ -300,14 +377,44 @@ It is a CLI (Command Line Interface) of GitHub to manage repos easier. It be abl
 ```bash
 # Homebrew
 brew install gh
+```
 
+```bash
 # Via curl
 curl -sS https://webi.sh/gh | sh
 ```
 
 After install gh CLI you have to log in with your GitHub account.
 ```bash
-
 # Log in with GitHub
 gh auth login
 ```
+
+### Kitty
+[Kitty](https://sw.kovidgoyal.net/kitty/) is another terminal emulator that I often use. Is a very customizable one and it is one of a very popular terminal emulators of linux world. The same is a GPU based terminal.
+
+```bash
+# Curl
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+```
+
+```bash
+# Homebrew
+brew install kitty
+```
+
+### Alacritty
+The terminal emulator that I use currently is [Alacritty](https://alacritty.org). A super fast terminal emulator built on rust.
+
+```bash
+# Via Homebrew
+brew install alacritty
+```
+
+```bash
+# Or with Cargo
+cargo install alacritty
+```
+
+
+
