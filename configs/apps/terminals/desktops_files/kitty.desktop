@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Application
+TryExec=kitty
+Exec=kitty
+Icon=kitty
+Terminal=false
+Categories=System;TerminalEmulator;
+StartupWMClass=kitty
+Name=Kitty
+GenericName=Terminal
+Comment=The fast, feature-rich, GPU based terminal emulator
+Keywords=shell;prompt;command;commandline;cmd;terminal;
+MimeType=application/x-terminal-emulator;
+Actions=New;
+
+[Desktop Action New]
+Name=New Window
+Exec=kitty
