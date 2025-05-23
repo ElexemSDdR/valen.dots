@@ -6,6 +6,15 @@ end
 alias ls="exa -a --icons"
 alias source_config="source ~/.config/fish/config.fish"
 alias edit_config="nvim ~/.config/fish/"
+alias escuela="cd ~/Escritorio/Escuela-2025/"
+
+# Git aliases
+alias gs="git status -s"
+alias gaa="git add ."
+alias gp="git push -u origin main"
+alias gpp="git pull"
+alias gcls="git config --global --list"
+alias glo="git log --oneline"
 
 # Initialize starship, zoxide and else for fish
 starship init fish | source
