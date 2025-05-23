@@ -1,4 +1,6 @@
 # My config
+> [!IMPORTANT]
+> All the configurations files of all of this will be on the configs folder, to apply my configuration go to that directory and copy the configuration files to the specified folder of each one.
 
 ## Package Manager
 
@@ -231,15 +233,7 @@ rm -rf ~/.config/nvim/.git
 # And finally, open nvim
 nvim
 ```
-To configure nvim, u can open the main config file, the config.vim to configure it with vimscript or also can be config.lua to configure it with lua.
-If you want, you can copy my configuration reeplacing the nvim folder of the .config directory on your computer with the nvim folder of the valen.dots.
-```bash
-# Delete the nvim folder of .config if it exists, remember do the backup before delete it 
-rm -rf ~/.config/nvim/
-
-# Copy the nvim folder, with the pwd here
-cp nvim/ ~/.config/
-```
+To configure nvim, u can open the main config file, the init.vim to configure it with vimscript or also can be init.lua to configure it with lua. It finds on ~/.config/nvim usually
 
 ### Brave Browser
 The browser I use is Brave.
@@ -397,6 +391,14 @@ gh auth login
 # Curl
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ```
+> [!NOTE]
+> If you install kitty via curl, the bin will not be on the /bin folder of the system neither in the /user/bin, it only will have the bin on the kitty.app folder (ubicated at ~/.local), you have to create a symbolic link at that kitty bin. 
+> Kitty also won't the icon or the program to execute it with the initial menu, it only have the bin to execute it via terminal, oyu gotta create the .desktop or copy the made file on the configs folder to execute it without the terminal or put it as default terminal.
+
+```bash
+# Make the symbolic link of the kitty bin
+ln -s /home/<user>/.local/kitty.app/bin/kitty /usr/bin/kitty
+```
 
 ```bash
 # Homebrew
@@ -404,7 +406,7 @@ brew install kitty
 ```
 
 ### Alacritty
-The terminal emulator that I use currently is [Alacritty](https://alacritty.org). A super fast terminal emulator built on rust.
+The terminal emulator that I use currently is [Alacritty](https://alacritty.org). A super fast terminal emulator built on rust. I recomend to use cargo for the installation, the nearest of Alacritty (this is for )
 
 ```bash
 # Via Homebrew
@@ -416,5 +418,7 @@ brew install alacritty
 cargo install alacritty
 ```
 
-
+> [!NOTE]
+> If you install Alacritty via cargo there'll not be a directly access to alacritty (it install only the bin file), it means that u have to execute it only with the terminal, it has the same "problem" that kitty. If u search "alacritty" or similar on the initial menu, it won't find anything.
+> You gotta create the .desktop file of alacritty or copy the file made on the configuration to put it as default terminal or to get the icon to execute it without only the terminal
 
