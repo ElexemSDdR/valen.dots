@@ -42,6 +42,63 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Anterior coincidencia centrada" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Desplazar media página abajo centrado" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Desplazar media página arriba centrado" })
 
--- Atajos para Telescope
-vim.keymap.set("n", "<leader><leader>f", ":Telescope find_files<CR>", { desc = "Open the find files from telescope" })
-vim.keymap.set("n", "<leader><leader>b", ":Telescope buffers<CR>", { desc = "Open the open buffers from telescope" })
+-- Atajos para Snacks pick
+vim.keymap.set("n", "<leader><space>", ":lua Snacks.dashboard.pick('files')<CR>", { desc = "Open the find files from Snacks pick" })
+vim.keymap.set("n", "<leader>b", ":lua Snacks.dashboard.pick('buffers')<CR>", { desc = "Open the opened buffers from Snacks pick" })
+
+-- Auto pair
+vim.keymap.set("i", "(", function()
+  vim.api.nvim_feedkeys("()", "n", false)
+  vim.schedule(function()
+      vim.api.nvim_input("<Left>")
+    end)
+  end
+)
+
+vim.keymap.set("i", "[", function()
+  vim.api.nvim_feedkeys("[]", "n", false)
+  vim.schedule(function()
+      vim.api.nvim_input("<Left>")
+    end)
+  end
+)
+
+vim.keymap.set("i", "{", function()
+  vim.api.nvim_feedkeys("{}", "n", false)
+  vim.schedule(function()
+      vim.api.nvim_input("<Left>")
+    end)
+  end
+)
+
+vim.keymap.set("i", "'", function()
+  vim.api.nvim_feedkeys("''", "n", false)
+  vim.schedule(function()
+      vim.api.nvim_input("<Left>")
+    end)
+  end
+)
+
+vim.keymap.set("i", "`", function()
+  vim.api.nvim_feedkeys("``", "n", false)
+  vim.schedule(function()
+      vim.api.nvim_input("<Left>")
+    end)
+  end
+)
+
+vim.keymap.set("i", "\"", function()
+  vim.api.nvim_feedkeys("\"\"", "n", false)
+  vim.schedule(function()
+      vim.api.nvim_input("<Left>")
+    end)
+  end
+)
+
+vim.keymap.set("i", "<", function()
+  vim.api.nvim_feedkeys("<>", "n", false)
+  vim.schedule(function()
+      vim.api.nvim_input("<Left>")
+    end)
+  end
+)
