@@ -102,3 +102,6 @@ vim.keymap.set("i", "<", function()
     end)
   end
 )
+
+-- ToggleTerm keymap
+vim.keymap.set("n", "<leader>tr", ":ToggleTerm direction=float<CR>", { desc = "Open a floating terminal" })
