@@ -32,7 +32,7 @@ require("lazy").setup("plugins")
 
 -- Cargar configuraciones adicionales
 require("config.keymaps")
-require("config.keymaps_for_different_files.markdown")
+-- require("config.keymaps_for_different_files.markdown")
 
 vim.cmd("colorscheme catppuccin-macchiato")
 vim.cmd("SoftWrapMode")
