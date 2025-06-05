@@ -422,3 +422,53 @@ cargo install alacritty
 > If you install Alacritty via cargo there'll not be a directly access to alacritty (it install only the bin file), it means that u have to execute it only with the terminal, it has the same "problem" that kitty. If u search "alacritty" or similar on the initial menu, it won't find anything.
 > You gotta create the .desktop file of alacritty or copy the file made on the configuration to put it as default terminal or to get the icon to execute it without only the terminal
 
+### The Fuck
+The Fuck is an CLI that detect errors after execute an incorrect command and indicates you how to write and execute it well. It is write on python.
+
+```bash
+# Via brew
+brew install thefuck
+```
+
+```bash
+# on Arch
+sudo pacman -S thefuck
+```
+
+```bash
+# using pip on other systems
+pip install thefuck
+```
+
+```bash
+# on FreeBSD based
+pkg install thefuck
+```
+
+```bash
+# On Ubuntu or Linux Mint
+sudo apt update
+sudo apt install python3-dev python3-pip python3-setuptools
+pip3 install thefuck --user
+```
+
+Then you have to add the bin or the command to use it.
+
+Copy the next line to the end of your .bashrc o .zshrc if you have it
+```bash
+eval $(thefuck --alias)
+```
+
+Or if you use fish (like in my case) do the following function to the functions.fish, or copy the functions on the configs/shells/fish on my configuration
+
+```bash
+function fuck -d "Correct your previous console command"
+  set -l fucked_up_command $history[1]
+  env TF_ALIAS=fuck PYTHONIOENCODING=utf-8 thefuck $fucked_up_command | read -l unfucked_command
+  if [ "$unfucked_command" != "" ]
+    eval $unfucked_command
+    builtin history delete --exact --case-sensitive -- $fucked_up_command
+    builtin history merge ^ /dev/null
+  end
+end
+```
