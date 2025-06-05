@@ -176,10 +176,12 @@ sudo apt install fastfetch
 ```
 
 ```bash
+# Arch
 sudo pacman -S fastfetch
 ```
 
 ```bash
+# Fedora
 sudo dnf install fastfetch
 ```
 
@@ -236,7 +238,8 @@ nvim
 To configure nvim, u can open the main config file, the init.vim to configure it with vimscript or also can be init.lua to configure it with lua. It finds on ~/.config/nvim usually
 
 ### Brave Browser
-The browser I use is Brave.
+One of the two browsers I use is Brave. Based on Chromium, it is a fast and privacy-focused browser that blocks ads and trackers by default. It also has a built-in Tor mode for enhanced privacy.
+
 You also can visit [The Brave Browser](https://brave.com) official website
 ```bash
 # Install Brave via curl with one command
@@ -289,6 +292,17 @@ sudo zypper install brave-browser
 ```bash
 # Arch with yay
 yay -Sy brave-bin
+```
+
+### Zen Browser
+This is the second browser I use, and the current I am using. Based on FireFox, [Zen Browser](https://zen-browser.app) it is a beautiful, customizable and is the best option (to me) to be more focused on the work and else.
+
+```bash
+# On Linux is recommended to install it via flatpak
+flatpak install flathub app.zen_browser.zen
+
+# To run it
+flatpak run app.zen_browser.zen
 ```
 
 ### Konsole
