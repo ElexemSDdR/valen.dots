@@ -34,6 +34,6 @@ require("lazy").setup("plugins")
 require("config.keymaps")
 -- require("config.keymaps_for_different_files.markdown")
 
-vim.cmd("colorscheme catppuccin-macchiato")
+vim.cmd("colorscheme catppuccin")
 vim.cmd("SoftWrapMode")
 
