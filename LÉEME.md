@@ -11,8 +11,11 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-[Cargo](https://doc.rust-lang.org/cargo/) is another package manager that I use, but isn't just a pacakge manager, it is the rust compiler, but with this install something more.
 [Cargo](https://doc.rust-lang.org/cargo/) es otro gestor de paquetes que uso, pero no es solo un gestor de paquetes, sino que también es el compilador de Rust, pero con esto instalamos algo más.
+```bash
+# Instalar Cargo via curl
+curl https://sh.rustup.rs -sSf | sh
+```
 
 ## Shells
 

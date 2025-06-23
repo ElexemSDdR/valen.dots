@@ -11,6 +11,10 @@
 ```
 
 [Cargo](https://doc.rust-lang.org/cargo/) is another package manager that I use, but isn't just a pacakge manager, it is the rust compiler, but with this install something more.
+```bash
+# Install Cargo via curl
+curl https://sh.rustup.rs -sSf | sh
+```
 
 ## Shells
 
