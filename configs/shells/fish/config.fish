@@ -6,7 +6,7 @@ end
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Aliases
-alias ls="exa -s type -al --icons --no-user --no-time"
+alias ls="eza -s type -al --icons --no-user --no-time"
 alias cd="z"
 alias cat="bat"
 alias tree="exa --tree --icons -s type"
