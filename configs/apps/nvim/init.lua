@@ -37,3 +37,60 @@ require("config.keymaps")
 vim.cmd("colorscheme catppuccin")
 vim.cmd("SoftWrapMode")
 
+vim.diagnostic.config({
+  -- Mostrar diagnósticos como texto virtual al final de la línea
+  virtual_text = {
+    enabled = true,
+    source = "always",  -- Mostrar la fuente del diagnóstico (eslint, typescript, etc.)
+    spacing = 2,        -- Espaciado entre el código y el mensaje
+    prefix = "●",       -- Símbolo antes del mensaje (puedes cambiarlo por "■", "▎", etc.)
+    format = function(diagnostic)
+      return string.format("%s: %s", diagnostic.source or "LSP", diagnostic.message)
+
+    end,
+  },
+  -- Configuración de los signos en el column (las letras E, W, H, etc.)
+  signs = {
+    enabled = true,
+    priority = 20,
+  },
+  -- Mostrar diagnósticos en ventana flotante al pasar el cursor
+  float = {
+    enabled = true,
+    source = "always",
+    border = "rounded",
+    header = "",
+    prefix = "",
+  },
+  -- Configuración del subrayado
+  underline = {
+    enabled = true,
+    severity = { min = vim.diagnostic.severity.WARN }
+  },
+  -- Actualización en tiempo real
+  update_in_insert = false,  -- Cambiar a true si quieres diagnósticos mientras escribes
+  -- Configurar la severidad mínima para mostrar
+  severity_sort = true,
+})
+
+local signs = { Error = "✗", Warn = "⚠", Hint = "💡", Info = "ℹ" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+-- Configuración adicional para mejorar la experiencia
+-- Resaltar la línea completa donde hay errores (opcional)
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    local opts = {
+      focusable = false,
+      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+      border = 'rounded',
+      source = 'always',
+      prefix = ' ',
+      scope = 'cursor',
+    }
+    vim.diagnostic.open_float(nil, opts)
+  end
+})
