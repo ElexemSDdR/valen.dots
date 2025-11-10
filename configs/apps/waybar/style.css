@@ -1,0 +1,155 @@
+/* Waybar general configuration (the bar config) */
+window {
+  /* background-color: rgba(0, 0, 0, .5); */
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border-radius: 25px;
+  font-family: fantasy;
+  font-size: 13px;
+}
+
+.bottomBar .modules-center {
+  margin: 0 0 5px 0;
+  padding: 6px;
+}
+
+/* Modules left configuration */
+.modules-left {
+  color: white;
+  background-color: rgba(.4, .2, .4, .8);
+  border-radius: 20px;
+  margin: 5px 0 0 5px;
+}
+
+#workspaces button {
+  color: rgba(246, 236, 253, .7);
+  border: none;
+  margin: 1px 1px;
+}
+#workspaces button:hover {
+  background: none;
+  border: none;
+  box-shadow: 0 0 0;
+  text-shadow: 0 0 0;
+  color: rgba(246, 236, 253, .7);
+}
+#workspaces button.focused {
+  background-color: rgba(.4, .2, .4, .8);
+  color: rgba(255, 255, 255, 1);
+}
+#workspaces button.active {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#window {
+  padding: 0 8px;
+}
+
+/* Modules center configuration */
+
+.modules-center {
+  background-color: rgba(.4, .2, .4, .8);
+  border-radius: 20px;
+  margin: 5px 0 0 0;
+}
+
+#clock {
+  padding: 0px 10px;
+  background-color: rgba(.4, .2, .4, .6);
+  transition: background-color .2s ease-in-out;
+  font-size: 1rem;
+  border-radius: 20px;
+}
+#clock:hover {
+  background-color: rgba(.4, .2, .4, 1);
+}
+
+#backlight {
+  padding: 0px 10px;
+  transition: background-color .2s ease-in-out;
+  border-radius: 20px;
+}
+#backlight:hover {
+  background-color: rgba(.4, .2, .4, .6);
+}
+
+#pulseaudio {
+  padding: 0px 13px;
+  transition: background-color .2s ease-in-out;
+  border-radius: 20px;
+}
+#pulseaudio:hover {
+  background-color: rgba(.4, .2, .4, .6);
+}
+
+/* Modules right configuration */
+
+.modules-right {
+  padding: 0 0 0 10px;
+  background-color: rgba(.4, .2, .4, .8);
+  border-radius: 20px;
+  margin: 5px 5px 0 0;
+}
+
+#user {
+  padding: 0px 8px;
+}
+
+#cpu {
+  /* background-color: rgba(245, 3, 252, .6); */
+  padding: 0px 8px;
+}
+
+#memory {
+  /* background-color: green; */
+  padding: 0px 8px;
+  margin: 0 4px 0 0;
+}
+
+#battery {
+  background-color: rgba(00, 159, 255, .2);
+  padding: 0px 11px 0 8px;
+  border-radius: 20px;
+  transition: background-color .3s ease-in-out;
+}
+#battery:hover {
+  background-color: rgba(00, 159, 255, .4);
+}
+
+#battery.good {
+  background-color: rgba(76, 175, 80, .2);
+}
+
+#battery.warning {
+  background-color: rgba(255, 193, 7, .2);
+}
+
+#battery.critical {
+  background-color: rgba(213, 51, 51, .2);
+}
+
+#network {
+  padding: 0 18px 0 8px;
+}
+
+#network.disconnected {
+  background-color: rgba(223, 112, 112, .2);
+  padding: 0px 8px;
+  border-radius: 20px;
+}
+
+#bluetooth {
+  padding: 0 10px;
+  margin: 0 0 0 5px;
+  border-radius: 20px;
+  transition: background-color .2s ease-in-out;
+  background-color: rgba(15, 112, 211, .1);
+}
+
+#bluetooth.connected {
+  background-color: rgba(15, 112, 211, .3);
+}
+
+#bluetooth.connected:hover {
+  background-color: rgba(15, 112, 211, .4);
+}

@@ -1,0 +1,93 @@
+[
+  {    
+    // "layer": "bottom",
+    // "height": 39,
+    "name": "topBar",
+    "position": "top",
+    "modules-left": ["custom/power", "hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["backlight", "clock", "pulseaudio"],
+    "modules-right": ["user", "cpu", "memory", "battery", "bluetooth", "network"],
+    "module-margin-left": "0px",
+    "module-margin-right": "0px",
+    "global-font": "FantasqueSansM Nerd Font 10",
+    "window-icon-size": "24px",
+    "battery": {
+      "states": {
+        "good": 50, 
+        "warning": 25, 
+        "critical": 15, 
+      },
+      "format": "{capacity}% {icon}",
+      "format-icons": ["", "", "", "", ""],
+      "format-charging": "{capacity}% "
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+      },
+      "format-hover": "<span style='color: #000000;'>{icon}</span>"
+    },
+    "cpu": {
+      "format": "{usage}% ",
+    },
+    "memory": {
+      "format": "{}% "
+    },
+    "clock": {
+      "timezone": "America/Argentina/Buenos_Aires",
+      "tooltip-format": "<big>{:%Y %B %d %A}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+    "backlight": {
+      "format": "{percent}% {icon}",
+      "format-icons": ["", "", "", "", "", "", "", "", ""],
+    },
+    "pulseaudio": {
+      "format": "{volume}% {icon}",
+      "format-bluetooth": "{volume}% {icon}",
+      "format-bluetooth-muted": " {icon}",
+      "format-muted": " ",
+      "format-icons": {
+          "headphone": "",
+          "hands-free": "",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", "", ""]
+      },
+      "on-click": "pavucontrol",
+    },
+    "bluetooth": {
+      "format": " {status}",
+      "format-connected": " {device_alias}",
+      "tooltip-format": "Controller: {controller_alias}\nConnected to: {device_alias} ({device_battery_percentage}%)\n\n{num_connections} connected",
+      "on-click": "blueman-manager"
+    },
+    "network": {
+      // "interface": "wlp2*", // (Optional) To force the use of this interface
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "tooltip-format": "{essid}",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "Disconnected ⚠",
+      "tooltip-exec": "nmcli device wifi list",
+    },
+  },
+  {
+    "name": "bottomBar",
+    "position": "bottom",
+    "modules-center": ["hyprland/window"],
+    "hyprland/window": {
+      "format": "",
+      "max-length": 0, // Characters count
+      "separate-outputs": false,
+      "icon": true,
+      "icon-size": 45,
+    },
+  }
+]
