@@ -1,4 +1,6 @@
--- Configuración de Mason
+-- Configuración de LSP usando la nueva API vim.lsp.config (Neovim 0.11+)
+
+-- Configurar Mason
 require("mason").setup({
   ui = {
     icons = {
@@ -12,11 +14,11 @@ require("mason").setup({
 -- Configuración de Mason-LSPConfig
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "lua_ls",     -- Lua
-    "pyright",    -- Python
-    "ts_ls", -- Typescript / JavaScript
-    "html",       -- HTML
-    "cssls",      -- CSS
+    "lua_ls",
+    "pyright",
+    "ts_ls",
+    "html",
+    "cssls",
   },
   automatic_installation = true,
 })
@@ -30,6 +32,10 @@ cmp.setup({
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -57,55 +63,32 @@ cmp.setup({
     end, { "i", "s" }),
   }),
   sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "path" },
+    { name = "nvim_lsp", priority = 1000 },
+    { name = "luasnip", priority = 750 },
+    { name = "buffer", priority = 500 },
+    { name = "path", priority = 250 },
   }),
-
-  preselect = cmp.PreselectMode.None,
   completion = {
-    completeopt = 'menu,menuone,noinsert,noselect',
-  },
-})
-
--- Configuración de capacidades de LSP
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
--- Configuración de servidores de lenguaje
-local lspconfig = require("lspconfig")
-
--- Lua
-lspconfig.lua_ls.setup({
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
+    completeopt = 'menu,menuone,noinsert',
+    autocomplete = { 
+      require('cmp.types').cmp.TriggerEvent.TextChanged,
     },
   },
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })[entry.source.name]
+      return vim_item
+    end,
+  },
 })
 
--- Python
-lspconfig.pyright.setup({
-  capabilities = capabilities,
-})
-
--- TypeScript/JavaScript
-lspconfig.ts_ls.setup({
-  capabilities = capabilities,
-})
-
--- HTML
-lspconfig.html.setup({
-  capabilities = capabilities,
-})
-
--- CSS
-lspconfig.cssls.setup({
-  capabilities = capabilities,
-})
+-- Obtener capabilities para autocompletado
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Keymaps globales para LSP
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -120,6 +103,62 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, opts)
+    vim.keymap.set("n", "<leader>f", function()
+      vim.lsp.buf.format({ async = true })
+    end, opts)
   end,
 })
+
+-- Configurar servidores LSP usando vim.lsp.config (nueva API)
+-- Lua
+vim.lsp.config.lua_ls = {
+  cmd = { "lua-language-server" },
+  root_markers = { ".luarc.json", ".luarc.jsonc", ".git" },
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = { version = "LuaJIT" },
+      diagnostics = { globals = { "vim" } },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+      telemetry = { enable = false },
+    },
+  },
+}
+
+-- Python
+vim.lsp.config.pyright = {
+  cmd = { "pyright-langserver", "--stdio" },
+  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" },
+  capabilities = capabilities,
+}
+
+-- TypeScript/JavaScript
+vim.lsp.config.ts_ls = {
+  cmd = { "typescript-language-server", "--stdio" },
+  root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+  capabilities = capabilities,
+}
+
+-- HTML
+vim.lsp.config.html = {
+  cmd = { "vscode-html-language-server", "--stdio" },
+  root_markers = { "package.json", ".git" },
+  capabilities = capabilities,
+}
+
+-- CSS
+vim.lsp.config.cssls = {
+  cmd = { "vscode-css-language-server", "--stdio" },
+  root_markers = { "package.json", ".git" },
+  capabilities = capabilities,
+}
+
+-- Habilitar los servidores
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("pyright")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("html")
+vim.lsp.enable("cssls")
