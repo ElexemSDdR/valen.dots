@@ -1,18 +1,19 @@
 function fish_greeting
   # Add the day of the year of your birthday to do well the message, mi birthday is on the 253 day of the year, you have to put the day of yours
-    if test (date +%H) -ge 12
-      echo "Good afternoon, $USER! today is $(date +%D)."
-      echo "Only $(echo "365 - $(date +%j)" | bc) left until end the year 🎉." 
-      echo "$(echo "359 - $(date +%j)" | bc) left until Christmas 🎅." 
-      echo "And $(echo "253 - $(date +%j)" | bc) until your birthday 🎂."
-      echo "Cheer up, tomorrow is another day ✨ try no give up."
-    else
-      echo "Good morning, $USER! today is $(date +%A) $(date +%D)." 
-      echo "Only $(echo "365 - $(date +%j)" | bc) left until end the year 🎉." 
-      echo "$(echo "359 - $(date +%j)" | bc) left until Christmas 🎅." 
-      echo "And $(echo "253 - $(date +%j)" | bc) until your birthday 🎂."
-      echo "Cheer up, tomorrow is another day ✨ try no give up."
-    end
+    # if test (date +%H) -ge 12
+    #   echo "Good afternoon, $USER! today is $(date +%D)."
+    #   echo "Only $(echo "365 - $(date +%j)" | bc) left until end the year 🎉." 
+    #   echo "$(echo "359 - $(date +%j)" | bc) left until Christmas 🎅." 
+    #   # echo "And $(echo "253 - $(date +%j)" | bc) until your birthday 🎂."
+    #   echo "Cheer up, tomorrow is another day ✨ try no give up."
+    # else
+    #   echo "Good morning, $USER! today is $(date +%A) $(date +%D)." 
+    #   echo "Only $(echo "365 - $(date +%j)" | bc) left until end the year 🎉." 
+    #   echo "$(echo "359 - $(date +%j)" | bc) left until Christmas 🎅." 
+    #   # echo "And $(echo "253 - $(date +%j)" | bc) until your birthday 🎂."
+    #   echo "Cheer up, tomorrow is another day ✨ try no give up."
+    # end
+  fastfetch
 end
 
 function show_paths -d 'Show all the paths on the $PATH env'
@@ -52,3 +53,4 @@ function fuck -d "Correct your previous console command"
     builtin history merge ^ /dev/null
   end
 end
+

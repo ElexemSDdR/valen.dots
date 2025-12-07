@@ -6,10 +6,11 @@ end
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Aliases
-alias ls="eza -s type -al --icons --no-user --no-time"
-alias cd="z"
+alias ls="exa -s type -al --icons --no-user --no-time"
+# alias cd="z"
 alias cat="bat"
-alias tree="eza --tree --icons -s type"
+alias zen="/home/valen/Downloads/zen/zen"
+alias tree="exa --tree --icons -s type"
 alias source_config="source ~/.config/fish/config.fish"
 alias edit_config="nvim ~/.config/fish/"
 alias escuela="cd ~/Escritorio/Escuela-2025/"
@@ -38,6 +39,8 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
+# editor env to nvim
+set EDITOR "nvim"
 
 ### key-bindings.fish ###
 #     ____      ____
@@ -272,5 +275,3 @@ function fzf_key_bindings
 end
 ### end: key-bindings.fish ###
 fzf_key_bindings
-
-set -gx PATH "/run/user/1000/fnm_multishells/12778_1750133254224/bin" $PATH; set -gx FNM_MULTISHELL_PATH "/run/user/1000/fnm_multishells/12778_1750133254224"; set -gx FNM_VERSION_FILE_STRATEGY "local"; set -gx FNM_DIR "/home/valen/.local/share/fnm"; set -gx FNM_LOGLEVEL "info"; set -gx FNM_NODE_DIST_MIRROR "https://nodejs.org/dist"; set -gx FNM_COREPACK_ENABLED "false"; set -gx FNM_RESOLVE_ENGINES "true"; set -gx FNM_ARCH "x64";
