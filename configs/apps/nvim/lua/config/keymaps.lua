@@ -2,6 +2,7 @@
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Cerrar ventana" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Guardar archivo" })
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { desc = "Quitar resaltado de búsqueda" })
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Eliminar un buffer" })
 
 -- Navegación entre ventanas
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Mover a la ventana izquierda" })
@@ -44,7 +45,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Desplazar media página arriba
 
 -- Atajos para Snacks pick
 vim.keymap.set("n", "<leader><space>", ":lua Snacks.dashboard.pick('files')<CR>", { desc = "Open the find files from Snacks pick" })
-vim.keymap.set("n", "<leader>b", ":lua Snacks.dashboard.pick('buffers')<CR>", { desc = "Open the opened buffers from Snacks pick" })
+vim.keymap.set("n", "<leader>bb", ":lua Snacks.dashboard.pick('buffers')<CR>", { desc = "Open the opened buffers from Snacks pick" })
 
 -- Auto pair
 vim.keymap.set("i", "(", function()

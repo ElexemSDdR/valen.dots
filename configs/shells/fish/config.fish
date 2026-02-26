@@ -6,19 +6,20 @@ end
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Aliases
-alias ls="exa -s type -al --icons --no-user --no-time"
-# alias cd="z"
+alias ls="eza -s type --icons"
+alias lla="eza -s type --icons -la"
+alias cd="z"
 alias cat="bat"
 alias zen="/home/valen/Downloads/zen/zen"
-alias tree="exa --tree --icons -s type"
+alias tree="eza --tree --icons -s type"
 alias source_config="source ~/.config/fish/config.fish"
 alias edit_config="nvim ~/.config/fish/"
-alias escuela="cd ~/Escritorio/Escuela-2025/"
 alias icat="kitten icat"
 alias update_time="sudo ntpd -qg && sudo hwclock -w"
 
 # Git aliases
-alias gs="git status -s"
+alias gs="git status"
+alias gss="git status -s"
 alias gaa="git add ."
 alias gp="git push -u origin main"
 alias gpp="git pull"
