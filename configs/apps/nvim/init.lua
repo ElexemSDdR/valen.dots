@@ -120,7 +120,6 @@ vim.diagnostic.config({
     prefix = "●",       -- Símbolo antes del mensaje (puedes cambiarlo por "■", "▎", etc.)
     format = function(diagnostic)
       return string.format("%s: %s", diagnostic.source or "LSP", diagnostic.message)
-
     end,
   },
   -- Configuración de los signos en el column (las letras E, W, H, etc.)

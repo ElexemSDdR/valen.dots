@@ -44,8 +44,12 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Desplazar media página abajo 
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Desplazar media página arriba centrado" })
 
 -- Atajos para Snacks pick
-vim.keymap.set("n", "<leader><space>", ":lua Snacks.dashboard.pick('files')<CR>", { desc = "Open the find files from Snacks pick" })
-vim.keymap.set("n", "<leader>bb", ":lua Snacks.dashboard.pick('buffers')<CR>", { desc = "Open the opened buffers from Snacks pick" })
+vim.keymap.set("n", "<leader>ff", ":lua Snacks.dashboard.pick('files')<CR>", { desc = "Open the find files from Snacks pick" })
+vim.keymap.set("n", "<leader>fb", ":lua Snacks.dashboard.pick('buffers')<CR>", { desc = "Open the opened buffers from Snacks pick" })
+vim.keymap.set("n", "<leader>fgg", ":lua Snacks.dashboard.pick('grep')<CR>", { desc = "Open a live grep text find" })
+vim.keymap.set("n", "<leader>fgl", ":lua Snacks.dashboard.pick('git_log')<CR>", { desc = "Open a log with the commits for git repositories" })
+vim.keymap.set("n", "<leader>fgb", ":lua Snacks.dashboard.pick('git_log')<CR>", { desc = "Open the branches of the git project" })
+vim.keymap.set("n", "<leader>fp", ":lua Snacks.dashboard.pick('projects')<CR>", { desc = "Open the projects saved on nvim" })
 
 -- Auto pair
 vim.keymap.set("i", "(", function()
@@ -106,13 +110,6 @@ vim.keymap.set("i", "<", function()
 
 -- ToggleTerm keymap
 vim.keymap.set("n", "<leader>tr", ":ToggleTerm direction=float<CR>", { desc = "Open a floating terminal" })
-
--- CopilotChat keymaps
-vim.keymap.set("n", "<leader>ac", ":CopilotChat<CR>", { desc = "Open Copilot Chat" })
-vim.keymap.set("n", "<leader>am", ":CopilotChatModels<CR>", { desc = "Open Copilot Chat Models" })
-vim.keymap.set("n", "<leader>aC", ":CopilotChatClose<CR>", { desc = "Close Copilot Chat" })
-vim.keymap.set("n", "<leader>at", ":CopilotChatToggle<CR>", { desc = "Toggle Copilot Chat" })
-
 
 -- Keymaps for Markdown formatting
 vim.api.nvim_create_autocmd("FileType", {
