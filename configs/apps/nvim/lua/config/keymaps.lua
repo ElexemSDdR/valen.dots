@@ -45,6 +45,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Desplazar media página arriba
 
 -- Atajos para Snacks pick
 vim.keymap.set("n", "<leader>ff", ":lua Snacks.dashboard.pick('files')<CR>", { desc = "Open the find files from Snacks pick" })
+vim.keymap.set("n", "<leader>ffa", ":lua Snacks.dashboard.pick('files', { hidden = true, ignored = true })<CR>", { desc = "Open the find files from Snacks pick showing all files, including ignored and hidden ones" })
 vim.keymap.set("n", "<leader>fb", ":lua Snacks.dashboard.pick('buffers')<CR>", { desc = "Open the opened buffers from Snacks pick" })
 vim.keymap.set("n", "<leader>fgg", ":lua Snacks.dashboard.pick('grep')<CR>", { desc = "Open a live grep text find" })
 vim.keymap.set("n", "<leader>fgl", ":lua Snacks.dashboard.pick('git_log')<CR>", { desc = "Open a log with the commits for git repositories" })
