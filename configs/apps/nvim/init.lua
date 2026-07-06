@@ -12,6 +12,7 @@ vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 300
 vim.opt.clipboard = "unnamedplus"
+vim.opt.showmode = false
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -47,7 +48,7 @@ require("config.keymaps")
 -- Activar el resaltado de colores
 -- require("nvim-highlight-colors").turnOn()
 
-vim.cmd("SoftWrapMode")
+-- vim.cmd("SoftWrapMode")
 
 vim.diagnostic.config({
   -- Mostrar diagnósticos como texto virtual al final de la línea

@@ -24,7 +24,8 @@ return {
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.config").setup({
-        ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css" },
+        ensure_installed = { "python", "javascript", "typescript", "html", "css" },
+        ignore_install = { "lua", "vim", "vimdoc" },
         sync_install = false,
         auto_install = true,
         highlight = { enable = true },
@@ -57,12 +58,4 @@ return {
     end,
   },
 
-  -- Barra de estado
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("lualine").setup({})
-    end,
-  },
 }
