@@ -1,10 +1,4 @@
 return {
-  -- Tema de colores (puedes cambiarlo por tu favorito)
-  {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000,
-  },
-
   -- LSP y autocompletado
   {
     "neovim/nvim-lspconfig",
@@ -29,7 +23,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter.config").setup({
         ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css" },
         sync_install = false,
         auto_install = true,
