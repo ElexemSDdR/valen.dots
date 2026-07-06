@@ -3,6 +3,8 @@ vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Cerrar ventana" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Guardar archivo" })
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { desc = "Quitar resaltado de búsqueda" })
 vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Eliminar un buffer" })
+vim.keymap.set("n", "<leader>bn", ":bn<CR>", { desc = "Ir al siguiente buffer" })
+vim.keymap.set("n", "<leader>bp", ":bp<CR>", { desc = "Ir al buffer anterior" })
 
 -- Navegación entre ventanas
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Mover a la ventana izquierda" })
