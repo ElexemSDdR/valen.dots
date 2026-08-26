@@ -2,33 +2,34 @@
 {
   // "layer": "top", // Waybar at top layer
   // "position": "bottom", // Waybar position (top|bottom|left|right)
-  "height": 30, // Waybar height (to be removed for auto height)
+  "height": 40, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
-  "spacing": 4, // Gaps between modules (4px)
+  // "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
     "custom/power",
-    "hyprland/workspaces",
-    "hyprland/submap",
+    "sway/workspaces",
+    "sway/mode",
     "keyboard-state",
-    "hyprland/language",
+    "sway/language",
+    "tray"
   ],
   "modules-center": [
+    "backlight",
     "clock",
-    "pulseaudio",
+    "pulseaudio"
   ],
   "modules-right": [
     "mpd",
-    "user",
     "cpu",
     "memory",
-    "temperature",
-    "tray",
     "idle_inhibitor",
-    "network",
+    "battery",
+    "bluetooth",
+    "network"
   ],
   // Modules configuration
-  "hyprland/workspaces": {
+  "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "warp-on-scroll": false,
@@ -54,7 +55,7 @@
       "unlocked": ""
     }
   },
-  "hyprland/submap": {
+  "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
   },
   "mpd": {
@@ -93,10 +94,10 @@
   "tray": {
     "icon-size": 21,
     "spacing": 10,
-    // "icons": {
-    //   "blueman": "bluetooth",
-    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-    // }
+    "icons": {
+      "blueman": "bluetooth"
+      // "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    }
   },
   "clock": {
     "timezone": "America/Argentina/Buenos_Aires",
@@ -110,18 +111,20 @@
   "memory": {
     "format": "{}% "
   },
-  "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": ["", "", ""]
-  },
   "backlight": {
     // "device": "acpi_video1",
     "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -145,12 +148,16 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": [
+        "",
+        "",
+        ""
+      ]
     },
     "on-click": "pavucontrol"
   },
   "custom/power": {
-    "format" : "⏻ ",
+    "format": "⏻ ",
     "tooltip": false,
     "menu": "on-click",
     "menu-file": "$HOME/.config/waybar/custom_modules/power_menu.xml", // Menu file in resources folder
@@ -160,5 +167,41 @@
       "suspend": "systemctl suspend",
       "hibernate": "systemctl hibernate"
     }
+  },
+  "battery": {
+    "states": {
+      "good": 50,
+      "warning": 25,
+      "critical": 15
+    },
+    "dwl/tags": {
+      "num-tags": 9,
+      "tag-labels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "format-charging": "{capacity}% "
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "tooltip-format": "Controller: {controller_alias}\nConnected to: {device_alias} ({device_battery_percentage}%)\n\n{num_connections} connected",
+    "on-click": "blueman-manager"
   }
 }
