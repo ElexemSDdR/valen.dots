@@ -19,6 +19,7 @@ require("mason-lspconfig").setup({
     "ts_ls",
     "html",
     "cssls",
+    "astro"
   },
   automatic_installation = true,
 })
@@ -64,13 +65,13 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = "nvim_lsp", priority = 1000 },
-    { name = "luasnip", priority = 750 },
-    { name = "buffer", priority = 500 },
-    { name = "path", priority = 250 },
+    { name = "luasnip",  priority = 750 },
+    { name = "buffer",   priority = 500 },
+    { name = "path",     priority = 250 },
   }),
   completion = {
     completeopt = 'menu,menuone,noinsert',
-    autocomplete = { 
+    autocomplete = {
       require('cmp.types').cmp.TriggerEvent.TextChanged,
     },
   },
@@ -97,10 +98,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local opts = { buffer = ev.buf }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "K", function()
+      vim.lsp.buf.hover({ border = 'rounded', focusable = false })
+    end, opts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
     vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename,
+      { buffer = ev.buf, desc = 'Rename the variable and all its ocurrences used in the code.' })
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>f", function()
@@ -156,9 +160,22 @@ vim.lsp.config.cssls = {
   capabilities = capabilities,
 }
 
+-- Astro
+vim.lsp.config.astro = {
+  cmd = { "astro-ls", "--stdio" },
+  root_markers = { "package.json", "astro.config.mjs", "astro.config.ts", ".git" },
+  capabilities = capabilities,
+  init_options = {
+    typescript = {
+      tsdk = "node_modules/typescript/lib"
+    }
+  }
+}
+
 -- Habilitar los servidores
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("pyright")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("html")
 vim.lsp.enable("cssls")
+vim.lsp.enable("astro")

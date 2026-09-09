@@ -13,6 +13,7 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 300
 vim.opt.clipboard = "unnamedplus"
 vim.opt.showmode = false
+vim.opt.cursorline = true
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -54,7 +55,7 @@ vim.diagnostic.config({
   -- Mostrar diagnósticos como texto virtual al final de la línea
   virtual_text = {
     enabled = true,
-    source = "always", -- Mostrar la fuente del diagnóstico (eslint, typescript, etc.)
+    source = nil, -- Mostrar la fuente del diagnóstico (eslint, typescript, etc.)
     spacing = 2, -- Espaciado entre el código y el mensaje
     prefix = "●", -- Símbolo antes del mensaje (puedes cambiarlo por "■", "▎", etc.)
     format = function(diagnostic)
@@ -69,7 +70,7 @@ vim.diagnostic.config({
   -- Mostrar diagnósticos en ventana flotante al pasar el cursor
   float = {
     enabled = true,
-    source = "always",
+    source = true,
     border = "rounded",
     header = "",
     prefix = "",

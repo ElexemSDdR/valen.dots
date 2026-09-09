@@ -12,9 +12,17 @@ return {
       "hrsh7th/cmp-cmdline",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
+      "kevinhwang91/nvim-ufo"
     },
     config = function()
       require("config.lsp")
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
+
+      require('ufo').setup({})
     end,
   },
 
