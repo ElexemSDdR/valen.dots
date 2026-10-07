@@ -1,5 +1,10 @@
+fastfetch
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(buffer-empty bracketed-paste accept-line push-line-or-edit)
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -63,7 +68,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# export ZSH_CUSTOM="$ZSH/custom"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -71,11 +76,14 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+
 plugins=(
   git
-  eza
-  zsh-syntax-highlighting
   zsh-autosuggestions
+  fzf-tab
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -361,31 +369,56 @@ fi
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
-# FNM paths
-export PATH="/run/user/1000/fnm_multishells/33825_1780938991199/bin":$PATH
-export FNM_MULTISHELL_PATH="/run/user/1000/fnm_multishells/33825_1780938991199"
-export FNM_VERSION_FILE_STRATEGY="local"
-export FNM_DIR="/home/valen/.local/share/fnm"
-export FNM_LOGLEVEL="info"
-export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
-export FNM_COREPACK_ENABLED="false"
-export FNM_RESOLVE_ENGINES="true"
-export FNM_ARCH="x64"
-rehash
-
-fnm use 24
+# Fnm vars
+eval "$(fnm env --use-on-cd)"
 
 # pnpm
-export PNPM_HOME="/home/valen/.local/share/pnpm"
+export PNPM_HOME='/home/valen/.local/share/pnpm'
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
-export PATH="$PNPM_HOME/bin":$PATH
 # pnpm end
 
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
-export PATH=$PATH:/home/valen/.spicetify
+export PATH="/home/valen/.local/bin/":$PATH
+
+# bun completions
+[ -s "/home/valen/.bun/_bun" ] && source "/home/valen/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.local/bin/env"
+
+# Make Tab open the completion menu and cycle through options
+source <(fzf --zsh)
+
+# General fzf customization
+export FZF_DEFAULT_OPTS="
+  --layout=reverse 
+  --info=inline 
+  --height=80% 
+  --border 
+  --multi
+  --preview-window=right:70% 
+  --bind='ctrl-u:preview-page-up,ctrl-d:preview-page-down'
+  --color=fg:-1,bg:-1,hl:#5f87af,fg+:#ffffff,bg+:#262626,hl+:#5fd7ff
+  --color=info:#afaf87,prompt:#d75f5f,pointer:#af5f5f,marker:#87ff00,spinner:#af5f5f
+"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
+# Fix Up and Down arrow history navigation
+bindkey '^[[A' up-line-or-history
+bindkey '^[[B' down-line-or-history
+bindkey '^[OA' up-line-or-history
+bindkey '^[OB' down-line-or-history
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS

@@ -9,17 +9,52 @@ return {
     bigfile = { enabled = true },
     dashboard = {
       enabled = true,
-      header = [[
-███╗   ██╗██╗   ██╗██╗███╗   ███╗
-████╗  ██║██║   ██║██║████╗ ████║
-██╔██╗ ██║██║   ██║██║██╔████╔██║
-██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝]]
+      preset = {
+        header = [[
+               ▄▄▄▀▀▀█
+                █   █
+  ▄▀▀█▀▀█▀▄▄    █ ░ █    ▄▀▀█▀▀█▀▄▄   ▄▄▄▀    ▀▄▄▄    ▄▀▀█▀▀█▀▄▄     ▀▄▄▄▄▄▄▄▀▄▄▄▄▄▄▀
+ █ ░▒█  ▒█▓█░   █░▒░█   █ ░▒█  ▒█▓█░  ██▓██  ██▓██   █ ░▒█  ▒█▓█░   ██▓██▀██▓██▒███▓██
+█▒░▒░   ░▓▀▀▀   █▒▓▒█  █▒░▒░   ░▓▀▀▀    ▓▒▓▌▐▓▒▓    █▒░▒░   ░▓▀▀▀  █▓▒▓ ▌ ▐ ▓▒▓█▌▐ ▓▒▓█
+█▒▓▒█▀■▀▀▀      █▓█▓░  █▒▓▒█▀■▀▀▀       ▀░▒░▀▒░▀    █▒▓▒█▀■▀▀▀     █▒░▒▓   ▓▒░▒█  ▓▒░▒█
+█▓█▓░    ▄▄■▄   █ ░ ▒  █▓█▓░    ▄▄■▄   ▓░ ░▌▐░ ░▓   █▓█▓░    ▄▄■▄  █░ ░▓   ▓░ ░█  ▓░ ░█
+ █ ░▒▄ ▄▒░░▒▓▌  █░▒░▓   █ ░▒▄ ▄▒░░▒▓▌ ▄▒░ ■  ■ ░▒▄   █ ░▒▄ ▄▒░░▒▓▌ ██ ░░   ░░ ██  ░░ ██
+   ▀▄▄▄▄▀▀▀▀    █▀▀▀      ▀▄▄▄▄▀▀▀▀   ▄▄▄▀    ▀▄▄▄▄    ▀▄▄▄▄▀▀▀▀   ▄▄▀▄▄   ▄▄▀▄▄  ▄▄▀▄▄
+   ]],
+        keys = {
+          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { icon = " ", key = "p", desc = "Recent Projects", action = ":lua Snacks.dashboard.pick('projects')" },
+          { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+        },
+      },
+      sections = {
+        { section = "header", padding = 1 },
+        { section = "keys",   padding = 1 },
+        {
+          icon = " ",
+          title = "Projects",
+          section = "projects",
+          padding = 1,
+        },
+        {
+          icon = " ",
+          title = "Git Status",
+          section = "terminal",
+          enabled = function()
+            return Snacks.git.get_root() ~= nil
+          end,
+          cmd = "git status --short --branch --renames",
+          height = 7,
+          padding = 1,
+          ttl = 5 * 60,
+        },
+        { section = "startup", padding = 1 },
+      }
     },
-    explorer = { enabled = true,
-
-    },
+    explorer = { enabled = true },
     indent = { enabled = true },
     input = { enable = true },
     picker = { enabled = true },
@@ -132,5 +167,5 @@ return {
         },
       },
     },
-  },
+  }
 }

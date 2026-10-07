@@ -14,6 +14,7 @@ vim.opt.updatetime = 300
 vim.opt.clipboard = "unnamedplus"
 vim.opt.showmode = false
 vim.opt.cursorline = true
+vim.o.cmdheight = 0
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -107,3 +108,30 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, opts)
   end
 })
+
+local cmdline = require("tiny-cmdline")
+
+cmdline.setup({
+  on_repository = cmdline.adapters.blink,
+  width = {
+    value = "70%",
+  },
+  border = "rounded",
+})
+
+require('mini.pairs').setup({})
+require('mini.surround').setup({})
+
+-- require('lspconfig').jsonls.setup({
+--   settings = {
+--     json = {
+--       schemas = require('schemastore').json.schemas {
+--         select = {
+--           '.eslintrc',
+--           'package.json',
+--         },
+--       },
+--       validate = { enable = true },
+--     },
+--   },
+-- })

@@ -1,6 +1,6 @@
 return {
   "navarasu/onedark.nvim",
-  priority = 1000,
+  priority = 900,
   config = function()
     require('onedark').setup({
       transparent = true,
@@ -23,6 +23,6 @@ return {
         background = true, -- use background color for virtual text
       },
     })
-    require('onedark').load()
+    -- require('onedark').load()
   end
 }

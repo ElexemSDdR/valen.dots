@@ -173,9 +173,16 @@ vim.lsp.config.astro = {
 }
 
 -- Habilitar los servidores
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("pyright")
-vim.lsp.enable("ts_ls")
-vim.lsp.enable("html")
-vim.lsp.enable("cssls")
-vim.lsp.enable("astro")
+
+local servers = { "lua_ls", "pyright", "ts_ls", "html", "cssls", "astro" }
+
+for _, server in pairs(servers) do
+  vim.lsp.enable(server)
+end
+
+-- vim.lsp.enable("lua_ls")
+-- vim.lsp.enable("pyright")
+-- vim.lsp.enable("ts_ls")
+-- vim.lsp.enable("html")
+-- vim.lsp.enable("cssls")
+-- vim.lsp.enable("astro")
